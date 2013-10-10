@@ -52,6 +52,16 @@ demo.exitExample2 = function () {
             .attr('style','font-size:2px').remove();
 };
 
+demo.svgExample = function () {
+    var svg = d3.select('#svg-example svg');
+    
+    svg.selectAll('circle').data([2,4,8,16,32]).enter()
+        .append('circle')
+        .attr('cx', function (d) { return d*10; })
+        .attr('cy', 25)
+        .attr('r', Number);
+};
+
 demo._init = function () {
     var codeExamples = document.getElementsByTagName('code');
     for (var i = 0, len = codeExamples.length; i < len; i++) {

@@ -4,8 +4,8 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-article {
-    margin-bottom: 64px;
+.big-whitespace {
+    height: 1000px;
 }
 
 .info-box {
@@ -21,6 +21,7 @@ article {
     border-left: solid green 4px;
     min-width: 600px;
     min-height: 8px;
+    margin: 1em 0px;
 }
 
 .snippet {
