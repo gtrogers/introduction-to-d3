@@ -3,6 +3,7 @@ var demo = {};
 demo.bindingExample = function () {
     var data = [
         'hypothesise',
+        ['d','e','s','i','g','n'],
         'collect',
         'analyse',
         'validate'
@@ -13,7 +14,7 @@ demo.bindingExample = function () {
         .data(data)
         .enter()
         .append('div')
-        .text(function (d) {return d;});
+        .text(function (d) {return d.length;});
 };
 
 demo.joinsExample = function () {
@@ -33,6 +34,21 @@ demo.enterExample = function () {
             function (d) { 
                 return d + " I'm new!"; 
             });
+};
+
+demo.exitExample1 = function () {
+    var resultsBox = d3.select('#exit-example'),
+        selection = resultsBox.selectAll('div').data([1,2,3,4,5]);
+    
+    selection.enter().append('div')
+        .text(String)
+        .attr('style','font-size:32px');
+};
+
+demo.exitExample2 = function () {
+    d3.select('#exit-example').selectAll('div').data([1,2,3])
+        .exit().transition().duration(1000)
+            .attr('style','font-size:2px').remove();
 };
 
 demo._init = function () {
