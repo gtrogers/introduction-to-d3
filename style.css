@@ -4,8 +4,23 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+article {
+    margin-bottom: 64px;
+}
+
+.info-box {
+    opacity: 0.2;
+}
+
+.info-box:hover {
+    opacity: 1;
+}
+
 .result {
     background-color: #F0F0F0;
+    border-left: solid green 4px;
+    min-width: 600px;
+    min-height: 8px;
 }
 
 .snippet {

@@ -8,11 +8,14 @@
                 <section>
                     <div class="info-box">
                         <h1>Introduction</h1>
-                        d3.js is a library for binding data structures to an html document.
-                        Here is a simple example. You can bind any type of data as long as
-                        it fits into an array.
+                        d3.js is a library for binding data structures to elements in an 
+                        html document. Here is a simple example. You can bind any type of 
+                        data as long as it fits into an array.
                         <pre><code data-source="bindingExample"></code></pre>
                         <div class="result" id="binding-example"></div>
+                        You can control the properties of elements using either values
+                        or functions. When you use functions each element knows
+                        which piece of data it is joined to.
                     </div>
                 </section>
                 <section>
@@ -29,6 +32,8 @@
                                 <li></li>
                             </ul>
                         </div>
+                    </div>
+                    <div class="info-box">
                         If an element doesn't exist for a piece of data then the join is still created.
                         The <pre class="snippet">.enter()</pre> function is used to describe what happens
                         in these situations.
@@ -40,14 +45,14 @@
                                 <li></li>
                             </ul>
                         </div>
+                    </div>
+                    <div class="info-box">
                         Removing elements works in a similar way. You can specify what happens
                         to an element when it is no longer bound to a piece of data with the
                         <pre class="snippet">.exit()</pre> function.
                         <pre><code data-source="exitExample1"></code></pre>
                         <pre><code data-source="exitExample2"></code></pre>
-                        <div class="result" id="exit-example">
-                            <ul></ul>
-                        </div>
+                        <div class="result" id="exit-example"></div>
                     </div>
                 </section>
             </div>
@@ -59,6 +64,7 @@
     <link rel="stylesheet" type="text/css" href="default.css"></link>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <script>demo._init();</script>
     </body>
 </html>
 

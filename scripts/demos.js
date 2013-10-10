@@ -14,7 +14,8 @@ demo.bindingExample = function () {
         .data(data)
         .enter()
         .append('div')
-        .text(function (d) {return d.length;});
+        .text(function (d) {return d.length;})
+        .attr('style', 'background-color:orange');
 };
 
 demo.joinsExample = function () {
