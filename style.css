@@ -1,0 +1,19 @@
+/* colours */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.result {
+    background-color: #F0F0F0;
+}
+
+.snippet {
+    display: inline-block;
+    margin: 0 0;
+}
+
+#leader {
+    width: 600px;
+    margin-left: 17%;
+}

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Visualising data with d3.js</title>
+    </head>
+    <body>
+        <article>
+            <div id="leader">
+                <section>
+                    <div class="info-box">
+                        <h1>Introduction</h1>
+                        d3.js is a library for binding data structures to an html document.
+                        Here is a simple example. You can bind any type of data as long as
+                        it fits into an array.
+                        <pre><code data-source="bindingExample"></code></pre>
+                        <div class="result" id="binding-example"></div>
+                    </div>
+                </section>
+                <section>
+                    <div class="info-box">
+                        <h1>Joins</h1>
+                        Data is bound by joining it to a selection created using <pre class="snippet">.selectAll()</pre>.
+                        If the elements already exist then data is bound to them (by default d3.js uses the order to decide
+                        which piece of data gets bound to which element).
+                        <pre><code data-source="joinsExample"></code></pre>
+                        <div class="result" id="joins-example">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        If an element doesn't exist for a piece of data then the join is still created.
+                        The <pre class="snippet">.enter()</pre> function is used to describe what happens
+                        in these situations.
+                        <pre><code data-source="enterExample"></code></pre>
+                        <div class="result" id="enter-example">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        If you ever want to remove...
+                    </div>
+                </section>
+            </div>
+        </article>
+    <script src="lib/d3.v3.min.js"></script>
+    <script src="lib/highlight.pack.js"></script>
+    <script src="scripts/demos.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <link rel="stylesheet" type="text/css" href="default.css"></link>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    </body>
+</html>
+
