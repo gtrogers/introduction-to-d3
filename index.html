@@ -137,7 +137,7 @@
                         <h3>How does the publication date effect the number of pages?</h3>
                         Data visualisation is a great tool for showing the reltationships between
                         data points. For instance what happens to word count as time increases or
-                        decreases. But before we go any further let's look at some more features
+                        decreases? But before we go any further let's look at some more features
                         of d3.js.
                     </div>
                     <div class="info-box">
@@ -162,14 +162,26 @@
                     </div>
                     <div class="info-box">
                         <h3>Back to the question...</h3>
-                        How does the publication date effect the number of pages?
+                        <h3>How does the publication date effect the number of pages?</h3>
                         <div class="result sticky" id="pages-vs-publication">
                             <svg width="600" height="180"></svg>
                             <div class="title">Page Count vs. Publication Date</div>
                         </div>
+                        First let's add a <pre class="snippet">circle</pre> element for each
+                        book in the data. We do this by binding the data and using the <pre class="snippet">.enter()</pre>
+                        function.
                         <pre><code data-source="pagesVsPublication1"></code></pre>
+                        Now let's construct a time scale to control the horizontal (or x) position of the
+                        circles. We can use the <pre class="snippet">d3.max</pre> and <pre class="snippet">d3.min</pre>
+                        helpers to find the maximum and minimum values for the scale. We set the range of the scale
+                        to slightly narrower than the SVG we're drawing in.
                         <pre><code data-source="pagesVsPublication2"></code></pre>
+                        Now we construct a scale for the vertical (or y) positions. Because the page count is just a
+                        number we'll use a linear scale. Once again we set the domain based on the maximum and minimum
+                        page count. We set the range so that the circles will end up at the top and bottom of the SVG.
                         <pre><code data-source="pagesVsPublication3"></code></pre>
+                        Another advantage of using the d3.js scale functions is that they can be quickly turned into
+                        axis for the graph.
                         <pre><code data-source="axisExample"></code></pre>
                     </div>
                 </section>
