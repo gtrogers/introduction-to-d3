@@ -1,20 +1,20 @@
 var demo = {};
 
 demo.bindingExample = function () {
-    var data = [
+    var listOfData = [
         'hypothesise',
         ['d','e','s','i','g','n'],
         'collect',
         'analyse',
-        {name: 'validate', length: 50}
+        {name: 'validate'}
     ];
 
     var resultsBox = d3.select('#binding-example');
     resultsBox.selectAll('div')
-        .data(data)
+        .data(listOfData)
         .enter()
         .append('div')
-        .text(function (d) {return d.length;})
+        .text(function (data) {return data.toString();})
         .attr('style', 'background-color:orange');
 };
 
@@ -147,7 +147,10 @@ demo.colourScaleExample = function () {
         resultBox = d3.select('#colour-scale-example');
 
     resultBox.selectAll('div')
-        .data([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0])
+        .data([
+                0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 
+                0.6, 0.7, 0.8, 0.9, 1.0
+        ])
         .enter()
         .append('div')
         .style('background-color',scale)
@@ -178,4 +181,16 @@ demo._init = function () {
             }
         };
     }
+};
+
+demo._aboutMe = function () {
+    var resultsBox = document.getElementById('about-me'),
+        me = {
+                name: "Gareth Rogers",
+                role: "Developer / Consultant / Agilist / Generalist",
+                employer: "ThoughtWorks",
+                twitter: "@GarethRogers0"
+        };
+    
+    resultsBox.innerHTML = JSON.stringify(me);
 };

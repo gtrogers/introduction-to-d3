@@ -7,6 +7,36 @@
             <div id="leader">
                 <section>
                     <div class="info-box">
+                        <h1>Hello!</h1>
+                        Welcome to this talk/tutorial/presentation on data visualisation using d3.js.
+                        This session will be split into two parts 
+                        <ul>
+                            <li>A (quick!) talk introducing some concepts and code examples - download the code and follow along</li>
+                            <li>Building some visualisations based on what we just learnt</li>
+                        </ul>
+
+                        <h3>Steps to get started:</h3>
+                        <ul>
+                            <li>Download this - <a href="#">Linky linky...</a></li>
+                            <li>Extract it somewhere on your machine</li>
+                            <li>Open index.html in Chrome/Chromium/IE9+</li>
+                            <li>... do you see this page?</li>
+                        </ul>
+                    </div>
+                    <div class="info-box">
+                        <h3>Introduction</h3>
+                        This is a code snippet, you can run the code by clicking on it.
+                        <pre><code data-source="_aboutMe"></code></pre>
+                        This is a results box. Clicking on it pins or unpins it from the top
+                        of the page. (Sometimes it's helpful to move them out of the way).
+                        <div class="sticky result" id="about-me"></div>
+                    </div>
+                    <div class="info-box">
+                        <h3>Scope</h3>
+                    </div>
+                </section>
+                <section>
+                    <div class="info-box">
                         <h1>Introducing d3.js</h1>
                         d3.js is a library for binding data structures to elements in an 
                         html document. Here is a simple example. You can bind any type of 
@@ -105,6 +135,13 @@
                         There are also more complicated questions we can answer using visualisation.
                         For instance...
                         <h3>How does the publication date effect the number of pages?</h3>
+                        Data visualisation is a great tool for showing the reltationships between
+                        data points. For instance what happens to word count as time increases or
+                        decreases. But before we go any further let's look at some more features
+                        of d3.js.
+                    </div>
+                    <div class="info-box">
+                        <h3>Using Scales</h3>
                         This is a good place to investigate some of the built in functions
                         that come with d3.js. Instead of positioning elements by providing
                         values manually we can use a <pre class="snippet">scale</pre> function.
@@ -117,11 +154,13 @@
                         Scales can also be used to map colour values...
                         <pre><code data-source="colourScaleExample"></code></pre>
                         <div class="result sticky" id="colour-scale-example"></div>
-                        And, for the question "How does the publication date effect the number of pages?" we
-                        can use scales to map time and date values.
+                        For the question we want to answer we can use scales to map dates values into
+                        positions.
+                        <h3>Back to the question...</h3>
+                        How does the publication date effect the number of pages?
                         <div class="result sticky" id="publication-vs-pages">
                             <svg width="600" height="180"></svg>
-                            <div class="title"></div>
+                            <div class="title">Pages vs. Publication</div>
                         </div>
                     </div>
                 </section>
