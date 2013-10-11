@@ -188,13 +188,16 @@ demo.pagesVsPublication2 = function () {
         earliestBook = d3.min(books, function (book) {
             return book.published;
         }),
-        xScale = d3.scale.linear();
+        xScale = d3.time.scale();
 
-    xScale.range([50,550]).domain([latestBook, earliestBook]);
+    xScale.range([50,550]).domain([earliestBook, latestBook]);
     
     chart.selectAll('circle').data(books)
         .transition().duration(1000)
         .attr('cx', function (book) { return xScale(book.published); });
+
+    // save the scale for later
+    demo.bookChartXScale = xScale;
 };
 
 demo.pagesVsPublication3 = function () {
@@ -208,11 +211,36 @@ demo.pagesVsPublication3 = function () {
         }),
         yScale = d3.scale.linear();
 
-    yScale.range([10,150]).domain([maxPages, minPages]);
+    yScale.range([10,130]).domain([maxPages, minPages]);
     
     chart.selectAll('circle').data(books)
         .transition().duration(1000)
         .attr('cy', function (book) { return yScale(book.pages); });
+
+    // save the scale for later
+    demo.bookChartYScale = yScale;
+};
+
+demo.axisExample = function () {
+    var chart = d3.select('#pages-vs-publication svg'),
+        xAxis = d3.svg.axis(),
+        yAxis = d3.svg.axis();
+
+    xAxis.scale(demo.bookChartXScale)
+        .orient('bottom')
+        .ticks(d3.time.years, 5);
+
+    yAxis.scale(demo.bookChartYScale)
+        .orient('left')
+        .ticks(5);
+    
+    chart.append('g')
+        .attr('transform','translate(0,130)')
+        .call(xAxis);    
+    
+    chart.append('g')
+        .attr('transform','translate(50,0)')
+        .call(yAxis);    
 };
 
 demo._init = function () {
