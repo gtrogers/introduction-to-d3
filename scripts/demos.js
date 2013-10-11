@@ -66,12 +66,25 @@ demo.barChartData = function () {
     // TODO: replace this with data for real books
     // Bar chart data
     return [
-        { length: 500, title: "1"},
-        { length: 550, title: "2"},
-        { length: 200, title: "3"},
-        { length: 15,  title: "4"},
-        { length: 27,  title: "5"},
-        { length: 100, title: "6"}
+        {   pages: 1209, 
+            title: "Lord of the Rings", 
+            published: new Date("July 29, 1954")
+        },
+        { 
+            pages: 223,
+            title: "Harry Potter and the Philosophers Stone",
+            published: new Date("June 26, 1997")
+        },
+        {
+            pages: 412,
+            title: "Dune",
+            published: new Date("January 1, 1965")
+        },
+        {
+            pages: 468, 
+            title: "The Amulet of Samarkand",
+            published: new Date("July 29, 2011")
+        }
     ];
 };
 
@@ -82,8 +95,8 @@ demo.bookLength1 = function () {
     chart.selectAll('rect').data(bookData).enter()
         .append('rect')
         .attr('x', 0)
-        .attr('y', function (d,i) { return i*20; })
-        .attr('width', function (d) { return d.length; })
+        .attr('y', function (d,index) { return index*30; })
+        .attr('width', function (d) { return d.pages / 3; })
         .attr('height', 18)
         .attr('fill', '#2b9ea6');
 };
@@ -95,10 +108,10 @@ demo.bookLength2 = function () {
     chart.selectAll('text.book-label').data(bookData).enter()
         .append('text')
         .classed('book-label','true')
-        .attr('x', 3)
-        .attr('y', function (d,i) { return i*20 + 16; })
+        .attr('x', function (d) { return d.pages / 3 + 4; })
+        .attr('y', function (d,i) { return i*30 + 15; })
         .attr('text-anchor', 'start')
-        .attr('fill','#f0f0f0')
+        .attr('fill','black')
         .text(function (d) { return d.title; });
 };
 
@@ -109,9 +122,13 @@ demo.bookLength3 = function () {
         chart.selectAll('text.page-count').data(bookData).enter()
             .append('text')
             .classed('page-count', true)
-            .attr('x', function (d) { return d.length; })
-            .attr('y', function (d, i) { return i*20 + 16; })
-            .text(function (d) { return d.length + " pages"});
+            .attr('x', 4)
+            .attr('y', function (d, i) { return i*30 + 12; })
+            .text(function (d) { return d.pages; });
+
+        d3.select('#book-length').append('div')
+            .classed('title', true)
+            .text('The length of books by page count');
 };
 
 demo._init = function () {

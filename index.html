@@ -85,9 +85,13 @@
                             <svg width="600" height="120" viewBox="0 0 600 120"></svg>
                         </div>
                         We can use <pre class="snippet">rect</pre> elements inside the SVG to
-                        represent the number of pages in each book.
+                        represent the number of pages in each book. The size and position of each element
+                        is controlled using the <pre class="snippet">x</pre>, <pre class="snippet">y</pre>, <pre class="snippet">width</pre>
+                        and <pre class="snippet">height</pre> properties. Each element has access to it's data
+                        point and index. These can be used in functions to position an element based on the
+                        values of it's data.
                         <pre><code data-source="bookLength1"></code></pre>
-                        But these are useless without adding some labels...
+                        The bars are useless without adding some labels...
                         <pre><code data-source="bookLength2"></code></pre>
                         It's a good idea to give each element a class, this way we wont accidently
                         join to the same thing twice.<br><br>

@@ -42,7 +42,13 @@ body {
 }
 
 .page-count {
+    fill: white;
     font-size: 10;
+    font-family: marydale;
+    text-anchor: start;
+}
+
+.title {
     font-family: marydale;
 }
 
