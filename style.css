@@ -30,9 +30,9 @@ body {
 
 .stuck {
     position: fixed;
-    left: 0;
+    width: 600px;
     top: 0;
-    margin-left: 17%;
+    margin: 0 auto;
     border: solid #e30066 4px;
     margin-top: 0;
 }
@@ -55,7 +55,7 @@ body {
 
 #leader {
     width: 600px;
-    margin-left: 17%;
+    margin: 0 auto;
 }
 
 #outro {

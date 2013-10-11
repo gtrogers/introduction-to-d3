@@ -48,8 +48,10 @@ demo.exitExample1 = function () {
 
 demo.exitExample2 = function () {
     d3.select('#exit-example').selectAll('div').data([1,2,3])
-        .exit().transition().duration(1000)
-            .attr('style','font-size:2px').remove();
+        .exit()
+        .transition()
+        .duration(1000)
+        .attr('style','font-size:2px').remove();
 };
 
 demo.svgExample = function () {
@@ -99,8 +101,8 @@ demo.bookLength1 = function () {
     chart.selectAll('rect').data(bookData).enter()
         .append('rect')
         .attr('x', 0)
-        .attr('y', function (d,index) { return index*30; })
-        .attr('width', function (d) { return d.pages / 3; })
+        .attr('y', function (book, index) { return index*30; })
+        .attr('width', function (book) { return book.pages / 3; })
         .attr('height', 18)
         .attr('fill', '#2b9ea6');
 };
@@ -112,11 +114,11 @@ demo.bookLength2 = function () {
     chart.selectAll('text.book-label').data(bookData).enter()
         .append('text')
         .classed('book-label','true')
-        .attr('x', function (d) { return d.pages / 3 + 4; })
-        .attr('y', function (d,i) { return i*30 + 15; })
+        .attr('x', function (book) { return book.pages / 3 + 4; })
+        .attr('y', function (book, index) { return index*30 + 15; })
         .attr('text-anchor', 'start')
         .attr('fill','black')
-        .text(function (d) { return d.title; });
+        .text(function (book) { return book.title; });
 };
 
 demo.bookLength3 = function () {
@@ -127,8 +129,8 @@ demo.bookLength3 = function () {
             .append('text')
             .classed('page-count', true)
             .attr('x', 4)
-            .attr('y', function (d, i) { return i*30 + 12; })
-            .text(function (d) { return d.pages; });
+            .attr('y', function (book, index) { return index*30 + 12; })
+            .text(function (book) { return book.pages; });
 
         d3.select('#book-length .title')
             .text('The length of books by page count');
@@ -142,14 +144,16 @@ demo.scaleExample = function () {
         .data([0,1,2,3,4])
         .enter()
         .append('div')
+        // the below line is short for 
+        // .text(function (d) { return scale(d); })
         .text(scale);
 };
 
 demo.colourScaleExample = function () {
-    var scale = d3.scale.linear()
-                .range(['#e30066','#2b9ea6'])
-                .domain([0,1]),
+    var scale = d3.scale.linear(),
         resultBox = d3.select('#colour-scale-example');
+
+    scale.range(['#e30066','#2b9ea6']).domain([0,1]);
 
     resultBox.selectAll('div')
         .data([
@@ -160,6 +164,55 @@ demo.colourScaleExample = function () {
         .append('div')
         .style('background-color',scale)
         .text(scale);
+};
+
+
+demo.pagesVsPublication1 = function () {
+    var books = demo.barChartData(),
+        chart = d3.select('#pages-vs-publication svg');
+
+    chart.selectAll('circle').data(books)
+        .enter()
+        .append('circle')
+        .attr('cx', 10)
+        .attr('cy', 10)
+        .attr('r', 10);
+};
+
+demo.pagesVsPublication2 = function () {
+    var books = demo.barChartData(),
+        chart = d3.select('#pages-vs-publication svg'),
+        latestBook = d3.max(books, function (book) { 
+            return book.published; 
+        }),
+        earliestBook = d3.min(books, function (book) {
+            return book.published;
+        }),
+        xScale = d3.scale.linear();
+
+    xScale.range([50,550]).domain([latestBook, earliestBook]);
+    
+    chart.selectAll('circle').data(books)
+        .transition().duration(1000)
+        .attr('cx', function (book) { return xScale(book.published); });
+};
+
+demo.pagesVsPublication3 = function () {
+    var books = demo.barChartData(),
+        chart = d3.select('#pages-vs-publication svg'),
+        maxPages = d3.max(books, function (book) { 
+            return book.pages; 
+        }),
+        minPages = d3.min(books, function (book) {
+            return book.pages;
+        }),
+        yScale = d3.scale.linear();
+
+    yScale.range([10,150]).domain([maxPages, minPages]);
+    
+    chart.selectAll('circle').data(books)
+        .transition().duration(1000)
+        .attr('cy', function (book) { return yScale(book.pages); });
 };
 
 demo._init = function () {
