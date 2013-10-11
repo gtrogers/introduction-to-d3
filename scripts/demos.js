@@ -6,7 +6,7 @@ demo.bindingExample = function () {
         ['d','e','s','i','g','n'],
         'collect',
         'analyse',
-        'validate'
+        {name: 'validate', length: 50}
     ];
 
     var resultsBox = d3.select('#binding-example');
@@ -60,6 +60,57 @@ demo.svgExample = function () {
         .attr('cx', function (d) { return d*10; })
         .attr('cy', 25)
         .attr('r', Number);
+};
+
+demo.barChartData = function () {
+    // TODO: replace this with data for real books
+    // Bar chart data
+    return [
+        { length: 500, title: "1"},
+        { length: 550, title: "2"},
+        { length: 200, title: "3"},
+        { length: 15,  title: "4"},
+        { length: 27,  title: "5"},
+        { length: 100, title: "6"}
+    ];
+};
+
+demo.bookLength1 = function () {
+    var bookData = demo.barChartData(),
+        chart = d3.select('#book-length svg');
+
+    chart.selectAll('rect').data(bookData).enter()
+        .append('rect')
+        .attr('x', 0)
+        .attr('y', function (d,i) { return i*20; })
+        .attr('width', function (d) { return d.length; })
+        .attr('height', 18)
+        .attr('fill', '#2b9ea6');
+};
+
+demo.bookLength2 = function () {
+    var bookData = demo.barChartData(),
+        chart = d3.select('#book-length svg');
+    
+    chart.selectAll('text').data(bookData).enter()
+        .append('text')
+        .attr('x', 3)
+        .attr('y', function (d,i) { return i*20 + 16; })
+        .attr('text-anchor', 'start')
+        .attr('fill','#f0f0f0')
+        .text(function (d) { return d.title; });
+};
+
+demo.bookLength3 = function () {
+    var bookData = demo.barChartData(),
+        chart = d3.select('#book-length svg');
+
+        chart.selectAll('text.page-count').data(bookData).enter()
+            .append('text')
+            .classed('page-count', true)
+            .attr('x', function (d) { return d.length; })
+            .attr('y', function (d, i) { return i*20 + 16; })
+            .text(function (d) { return d.length + " pages"});
 };
 
 demo._init = function () {

@@ -7,7 +7,7 @@
             <div id="leader">
                 <section>
                     <div class="info-box">
-                        <h1>Introduction</h1>
+                        <h1>Introducing d3.js</h1>
                         d3.js is a library for binding data structures to elements in an 
                         html document. Here is a simple example. You can bind any type of 
                         data as long as it fits into an array.
@@ -57,6 +57,7 @@
                 </section>
                 <section>
                     <div class="info-box">
+                        <h1>SVG</h1>
                         d3.js can be used with SVG as well as HTML. SVG stands for scalable
                         vector graphic. It is an XML based format for drawing shapes and is 
                         understood by modern web browsers (Firefox, Chrome, IE9).
@@ -64,11 +65,32 @@
                         <div class="result" id="svg-example">
                             <svg width="500" height="50"></svg>
                         </div>
+                        The SVG format contains many different elements, a full list
+                        can be found here <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element?redirectlocale=en-US&redirectslug=SVG%2FElement">SVG Element Reference</a>. For this tutorial we'll be looking at <pre class="snippet">circle</pre>, <pre class="snippet">rect</pre> and
+                        <pre class="snippet">path</pre>.
+                    </div>
+                </section>
+                <section>
+                    <div class="info-box">
+                        <h1>A simple bar chart</h1>
+                        Now we have had a quick look at d3.js let's go through the steps of creating a simple chart.
+                        A good visualisation is designed to answer a question or prove a point about some data. So
+                        let's start by looking at the data we are going to use.
+                        <pre><code data-source="barChartData"></code></pre>
                     </div>
                     <div class="info-box">
-                        The SVG format contains many different elements, a full list
-                        can be found here <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element?redirectlocale=en-US&redirectslug=SVG%2FElement">SVG Element Reference</a>. For this tutorial we'll be looking at <pre class="snippet">circle</pre>,<pre class="snippet">rect</pre> and
-                        <pre class="snippet">path</pre>.
+                        There are some obvious questions we can answer. Such as...
+                        <h3>Which is the longest book?</h3>
+                        <div class="result" id="book-length">
+                            <svg width="600" height="120" viewBox="0 0 600 120"></svg>
+                        </div>
+                        We can use <pre class="snippet">rect</pre> elements inside the SVG to
+                        represent the number of pages in each book.
+                        <pre><code data-source="bookLength1"></code></pre>
+                        But these are useless without adding some labels...
+                        <pre><code data-source="bookLength2"></code></pre>
+                        And we should tell people that our unit of measurement is pages...
+                        <pre><code data-source="bookLength3"></code></pre>
                     </div>
                 </section>
             </div>
