@@ -29,7 +29,7 @@
                         <pre><code data-source="_aboutMe"></code></pre>
                         This is a results box. Clicking on it pins or unpins it from the top
                         of the page. (Sometimes it's helpful to move them out of the way).
-                        <div class="sticky result" id="about-me"></div>
+                        <div class="result sticky" id="about-me"></div>
                     </div>
                     <div class="info-box">
                         <h3>Scope</h3>
@@ -150,12 +150,16 @@
                         In the above code <pre class="snippet">d3.scale.linear()</pre> creates
                         a linear scale function. The <pre class="snippet">range([minOut,maxOut])</pre> function
                         sets the maximum and minimum output values. The <pre class="snippet">domain([minIn,maxIn])</pre>
-                        function sets the values we want to map using the scale.<br><br>
+                        function sets the values we want to map using the scale.
+                    </div>
+                    <div class="info-box">
                         Scales can also be used to map colour values...
                         <pre><code data-source="colourScaleExample"></code></pre>
                         <div class="result sticky" id="colour-scale-example"></div>
-                        For the question we want to answer we can use scales to map dates values into
+                        For the question we want to answer we can use scales to map date values into
                         positions.
+                    </div>
+                    <div class="info-box">
                         <h3>Back to the question...</h3>
                         How does the publication date effect the number of pages?
                         <div class="result sticky" id="publication-vs-pages">
@@ -165,6 +169,15 @@
                     </div>
                 </section>
             </div>
+            <section>
+                <div class="big-whitespace"></div>
+            </section>
+            <section>
+                <div id="outro">
+                <img src="tw-logo.png"></img>
+                <div id="thoughtworks">Thanks for taking part - We're hiring!</div>
+                </div>
+            </section>
             <div class="big-whitespace"></div>
         </article>
     <script src="lib/d3.v3.min.js"></script>

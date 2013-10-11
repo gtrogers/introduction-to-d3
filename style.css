@@ -9,7 +9,7 @@ body {
 }
 
 .info-box {
-    opacity: 0.2;
+    opacity: 0.1;
     margin: 1em 0px;
 }
 
@@ -45,15 +45,33 @@ body {
 .page-count {
     fill: white;
     font-size: 10;
-    font-family: marydale;
+    font-family: marydale, 'Courier New';
     text-anchor: start;
 }
 
 .title {
-    font-family: marydale;
+    font-family: marydale, 'Courier New';
 }
 
 #leader {
     width: 600px;
     margin-left: 17%;
+}
+
+#outro {
+    display: block;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#outro img {
+    width: 212px;
+    height: 32px;
+}
+
+#thoughtworks {
+    font-family: marydale;
+    display: block;
+    margin: 1em auto;
 }

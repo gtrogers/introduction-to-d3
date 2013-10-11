@@ -59,7 +59,12 @@ demo.svgExample = function () {
         .append('circle')
         .attr('cx', function (d) { return d*10; })
         .attr('cy', 25)
-        .attr('r', Number);
+        .attr('r', Number)
+        .attr('fill', '#ff5e3b');
+
+    svg.selectAll('circle')
+        .transition()
+        .attr('cx', function (d) { return d*10 + Math.random()*25; })
 };
 
 demo.barChartData = function () {
@@ -187,8 +192,6 @@ demo._aboutMe = function () {
     var resultsBox = document.getElementById('about-me'),
         me = {
                 name: "Gareth Rogers",
-                role: "Developer / Consultant / Agilist / Generalist",
-                employer: "ThoughtWorks",
                 twitter: "@GarethRogers0"
         };
     
