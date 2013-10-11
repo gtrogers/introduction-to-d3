@@ -63,8 +63,7 @@ demo.svgExample = function () {
 };
 
 demo.barChartData = function () {
-    // TODO: replace this with data for real books
-    // Bar chart data
+    // demo.barCharData()
     return [
         {   pages: 1209, 
             title: "Lord of the Rings", 
@@ -126,9 +125,33 @@ demo.bookLength3 = function () {
             .attr('y', function (d, i) { return i*30 + 12; })
             .text(function (d) { return d.pages; });
 
-        d3.select('#book-length').append('div')
-            .classed('title', true)
+        d3.select('#book-length .title')
             .text('The length of books by page count');
+};
+
+demo.scaleExample = function () {
+    var scale = d3.scale.linear().range([0,50]).domain([0,5]),
+        resultBox = d3.select('#scale-example');
+
+    resultBox.selectAll('div')
+        .data([0,1,2,3,4])
+        .enter()
+        .append('div')
+        .text(scale);
+};
+
+demo.colourScaleExample = function () {
+    var scale = d3.scale.linear()
+                .range(['#e30066','#2b9ea6'])
+                .domain([0,1]),
+        resultBox = d3.select('#colour-scale-example');
+
+    resultBox.selectAll('div')
+        .data([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0])
+        .enter()
+        .append('div')
+        .style('background-color',scale)
+        .text(scale);
 };
 
 demo._init = function () {

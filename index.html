@@ -83,6 +83,7 @@
                         <h3>Which is the longest book?</h3>
                         <div class="result sticky" id="book-length">
                             <svg width="600" height="120" viewBox="0 0 600 120"></svg>
+                            <div class="title">title</div>
                         </div>
                         We can use <pre class="snippet">rect</pre> elements inside the SVG to
                         represent the number of pages in each book. The size and position of each element
@@ -99,6 +100,29 @@
                         <pre><code data-source="bookLength3"></code></pre>
                         Notice that we can control the appearance of elements using CSS classes
                         as well as setting the styles in d3.js.
+                    </div>
+                    <div class="info-box">
+                        There are also more complicated questions we can answer using visualisation.
+                        For instance...
+                        <h3>How does the publication date effect the number of pages?</h3>
+                        This is a good place to investigate some of the built in functions
+                        that come with d3.js. Instead of positioning elements by providing
+                        values manually we can use a <pre class="snippet">scale</pre> function.
+                        <pre><code data-source="scaleExample"></code></pre>
+                        <div class="result sticky" id="scale-example"></div>
+                        In the above code <pre class="snippet">d3.scale.linear()</pre> creates
+                        a linear scale function. The <pre class="snippet">range([minOut,maxOut])</pre> function
+                        sets the maximum and minimum output values. The <pre class="snippet">domain([minIn,maxIn])</pre>
+                        function sets the values we want to map using the scale.<br><br>
+                        Scales can also be used to map colour values...
+                        <pre><code data-source="colourScaleExample"></code></pre>
+                        <div class="result sticky" id="colour-scale-example"></div>
+                        And, for the question "How does the publication date effect the number of pages?" we
+                        can use scales to map time and date values.
+                        <div class="result sticky" id="publication-vs-pages">
+                            <svg width="600" height="180"></svg>
+                            <div class="title"></div>
+                        </div>
                     </div>
                 </section>
             </div>
