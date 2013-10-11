@@ -92,8 +92,9 @@ demo.bookLength2 = function () {
     var bookData = demo.barChartData(),
         chart = d3.select('#book-length svg');
     
-    chart.selectAll('text').data(bookData).enter()
+    chart.selectAll('text.book-label').data(bookData).enter()
         .append('text')
+        .classed('book-label','true')
         .attr('x', 3)
         .attr('y', function (d,i) { return i*20 + 16; })
         .attr('text-anchor', 'start')

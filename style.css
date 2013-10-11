@@ -24,7 +24,7 @@ body {
 }
 
 .sticky {
-    border-left: solid blue 4px;
+    border-left: solid #e30066 4px;
 }
 
 .stuck {
@@ -32,13 +32,18 @@ body {
     left: 0;
     top: 0;
     margin-left: 17%;
-    border: solid blue 4px;
+    border: solid #e30066 4px;
     margin-top: 0;
 }
 
 .snippet {
     display: inline-block;
     margin: 0 0;
+}
+
+.page-count {
+    font-size: 10;
+    font-family: marydale;
 }
 
 #leader {
