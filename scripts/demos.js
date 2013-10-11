@@ -124,4 +124,17 @@ demo._init = function () {
             codeBlock.onclick = demo[source];
         }
     }
+
+    var stickyDivs = document.getElementsByClassName('sticky');
+    for (var i = 0, len = stickyDivs.length; i < len; i++) {
+        var div = stickyDivs[i];
+        div.onclick = function () {
+            var currentClass = this.getAttribute('class');
+            if (!currentClass.match("stuck")) {
+                this.setAttribute('class','result stuck');
+            } else {
+                this.setAttribute('class', 'result sticky');
+            }
+        };
+    }
 };
