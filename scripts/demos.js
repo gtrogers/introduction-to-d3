@@ -1,21 +1,49 @@
 var demo = {};
 
-demo.bindingExample = function () {
-    var listOfData = [
-        'hypothesise',
-        ['d','e','s','i','g','n'],
-        'collect',
-        'analyse',
-        {name: 'validate'}
-    ];
+demo.colorizeLogLine = function (logLine) {
+    var responseCode = logLine.split(" ")[3],
+        colours = {
+            "200": '#2b9ea6',
+            "404": 'grey',
+            "500": '#e30066'
+        };
 
-    var resultsBox = d3.select('#binding-example');
-    resultsBox.selectAll('div')
-        .data(listOfData)
+    return colours[responseCode];
+};
+
+demo.widthFromLogTime = function (logLine) {
+    var time = logLine.split(" ")[4];
+        
+    return parseInt(time) / 10;
+};
+
+demo.bindingExample = function () {
+    var boringServerLogs = [
+        '"GET /boring/url HTTP/1.0" 200 3123',
+        '"GET /boring/url HTTP/1.0" 200 3003',
+        '"GET /boring/url HTTP/1.0" 500 5500',
+        '"POST /boring/restful/resource HTTP/1.0" 200 3782',
+        '"GET /boring/url HTTP/1.0" 404 1250',
+        '"GET /boring/url HTTP/1.0" 200 3425'
+        ],
+        resultsBox = d3.select('#binding-example');
+        
+    
+    resultsBox.selectAll('div.log-line')
+        .data(boringServerLogs)
         .enter()
         .append('div')
-        .text(function (data) {return data.toString();})
-        .attr('style', 'background-color:orange');
+        .classed('log-line', true)
+        .text(function (logLine) { return logLine; })
+        .style('background-color', demo.colorizeLogLine)
+        .append('div')
+        .style('height', 10)
+        .style('width', 0)
+        .style('background-color', 'black');
+
+    resultsBox.selectAll('div.log-line div')
+        .style('width', 0).transition().duration(1000)
+        .style('width', demo.widthFromLogTime)
 };
 
 demo.joinsExample = function () {
