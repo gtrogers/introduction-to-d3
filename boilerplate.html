@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>d3.js Boiler Plate</title>
+</head>
+<body>
+    <article>
+        <h1></h1>
+        <section>
+            <div id="data-vis">
+                <svg height="600" width="800" viewBox="0 0 600 800">
+                </svg>
+            </div>
+        </section>
+    </article>
+    <script src="lib/d3.v3.min.js"></script>
+    <script>
+        var vis = {};
+        vis.svg = d3.select('#data-vis svg');
+    </script>
+</body>
+</html>
+

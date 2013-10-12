@@ -1,4 +1,0 @@
-Scope of this presentation
-==========================
-
-
