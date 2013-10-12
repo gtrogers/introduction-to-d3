@@ -14,7 +14,6 @@
                             <li>A (quick!) talk introducing some concepts and code examples - download the code and follow along</li>
                             <li>Building some visualisations based on what we just learnt</li>
                         </ul>
-
                         <h3>Steps to get started:</h3>
                         <ul>
                             <li>Download this - <a href="#">Linky linky...</a></li>
@@ -33,12 +32,44 @@
                     </div>
                     <div class="info-box">
                         <h3>Scope</h3>
+                        <div class="info-box">
+                        This tutorial is designed to get you creating data visualisations
+                        as quickly as possible. It's going to feature lots of examples which can
+                        easily be reused. Don't worry if things don't make sense at first, the
+                        examples are designed to overlap and reinforce the hard bits.
+                        <h3>In scope</h3>
+                        <ul>
+                            <li>Binding data to the page</li>
+                            <li>Manipulating SVG shapes with d3.js</li>
+                            <li>Manipulating SVG paths with d3.js</li>
+                            <li>Some useful time saving d3.js functions</li>
+                            <li>The basic components a visualisation should have</li>
+                        </ul>
+                        <h3>Out of scope</h3>
+                        <ul>
+                            <li>A complete overview of the d3.js library</li>
+                            <li>Pros and cons of functional and declarative programming</li>
+                        </ul>
+                        </div>
                     </div>
                 </section>
                 <section>
                     <div class="info-box">
-                        <h1>Introducing d3.js</h1>
-                        d3.js is a library for binding data structures to elements in an 
+                        <h1>What is data visualisation?</h1>
+                        Data visualisation is the process of representing data or the properties
+                        of data in a visual way. A good example is turning something hard to
+                        understand, like server logs or a giant excel document, into something
+                        that can be understood at a glance.
+                    </div>
+                    <div class="info-box">
+                        <h3>What is d3.js?</h3>
+                        d3.js is a javascript library for working with data. The code
+                        is available on <a href="https://github.com/mbostock/d3">github</a>. It's
+                        written and maintained by Mike Bostock.
+                    </div>
+                    <div class="info-box">
+                        <h3>Introducing the code</h3>
+                        d3.js works by binding data structures to elements in an 
                         html document. Here is a simple example. You can bind any type of 
                         data as long as it fits into an array.
                         <pre><code data-source="bindingExample"></code></pre>
