@@ -191,9 +191,29 @@
                         <div class="result sticky" id="paths-example">
                             <svg width="600" height="120" viewBox="0 0 600 120"></svg>
                         </div>
+                        The SVG format provides the <pre class="snippet">path</pre> element for defining freeform 
+                        lines and shapes. The <pre class="snippet">d3.svg.line()</pre> function provies a way
+                        of turning data points into SVG paths. d3.js assumes that each path will have it's own array
+                        of values and two functions, one for the x value of each point and one for the y value.
+                        Once the line function has been set up it can be used to generate the <pre class="snippet">d</pre>
+                        attribute of a path element.
                         <pre><code data-source="pathsExample1"></code></pre>
+                        Paths are drawn by connecting a series of points. The <pre class="snippet">.interpolate()</pre>
+                        function can used to control how the points are joined together. For now we'll use 
+                        <pre class="snippet">.interpolate('linear')</pre> which will draw a straight line between
+                        each point. We can visualise the points using the same data and functions that we used to
+                        set up the line. Because elements 'remember' the data that they are joined to we can retrieve
+                        the line data from the element containing the line. Let's draw a circle at each point on the line.
                         <pre><code data-source="pathsExample2"></code></pre>
+                        The <pre class="snippet">d3.svg.line()</pre> function is actually rendering a string in
+                        an SVG specific DSL for drawing lines. DSL stands for domain specific language. The language is
+                        made up of values for positions and letters for instructions. Each point is seperated by a comma.
+                        The DSL is stored in the <pre class="snippet">d</pre> attribute of path elements. We can inspect
+                        this attribute with d3.js and use it to label the path above.
                         <pre><code data-source="pathDSL"></code></pre>
+                        With the labels we can see that the start of the line is marked up with <pre class="snippet">M0</pre>
+                        the rest of the points are written <pre class="snippet">[yValue]L[xValue]</pre>. The <pre class="snippet">L</pre>
+                        means line-to.
                     </div>
                 </section>
             </div>
