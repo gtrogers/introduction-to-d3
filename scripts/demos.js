@@ -243,6 +243,70 @@ demo.axisExample = function () {
         .call(yAxis);    
 };
 
+demo.pathsExample1 = function () {
+    var data = [
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        ],
+        chart = d3.select('#paths-example svg'),
+        sin = d3.svg.line().interpolate('linear'),
+        xPos = function (d, i) { return i*60; },
+        yPos = function (d, i) { return 100 - Math.pow(d,2); };
+
+    sin
+        .x(xPos)
+        .y(yPos);
+
+    chart.selectAll('g.graph-line').data(data).enter()
+        .append('g').classed('graph-line',true)
+        .append('path')
+        .attr('stroke', 'black')
+        .attr('stroke-width', 2)
+        .attr('fill', 'none')
+        .attr('d', sin);
+
+    // let's store these for later
+    demo.paths = {xPos: xPos, yPos: yPos};
+};
+
+demo.pathsExample2 = function () {
+    var chart = d3.select('#paths-example svg'),
+        data = chart.select('g.graph-line').data()[0];
+
+        chart.selectAll('circle').data(data)
+            .enter()
+            .append('circle')
+            .attr('cx', demo.paths.xPos)
+            .attr('cy', 0)
+            .attr('r', 4)
+            .attr('fill', '#e30066')
+            .attr('stroke', 'black');
+
+        chart.selectAll('circle')
+            .attr('cy', 0)
+            .transition()
+            .duration(2000)
+            .attr('cy', demo.paths.yPos);
+};
+
+demo.pathDSL = function () {
+    var path = d3.select('#paths-example svg path'),
+        // get the SVG markup for the path
+        pathDSL = path.attr('d').split(','),
+        // get the data back out of the path
+        data = d3.select('#paths-example svg g.graph-line').data()[0],
+        chart = d3.select('#paths-example svg');
+        
+        chart.selectAll('text').data(data)
+            .enter()
+            .append('text')
+            .attr('x', demo.paths.xPos)
+            .attr('y', function (d,i) { 
+                return demo.paths.yPos(d,i) + 18; 
+            })
+            .text(function (d,i) { return pathDSL[i]; });
+};
+
+
 demo._init = function () {
     var codeExamples = document.getElementsByTagName('code');
     for (var i = 0, len = codeExamples.length; i < len; i++) {
