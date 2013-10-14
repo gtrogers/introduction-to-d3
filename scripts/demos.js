@@ -296,7 +296,7 @@ demo.pathsExample1 = function () {
         chart = d3.select('#paths-example svg'),
         xPos = function (d, i) { return i*60; },
         yPos = function (d, i) { return 100 - Math.pow(d,2); },
-        sin = d3.svg.line().interpolate('linear').x(xPos).y(yPos);
+        lineFunction = d3.svg.line().interpolate('linear').x(xPos).y(yPos);
 
     chart.selectAll('g.graph-line').data(data).enter()
         .append('g').classed('graph-line', true)
@@ -304,7 +304,7 @@ demo.pathsExample1 = function () {
         .attr('stroke', 'black')
         .attr('stroke-width', 2)
         .attr('fill', 'none')
-        .attr('d', sin);
+        .attr('d', lineFunction);
 
     // let's store the position functions for later
     demo.paths = {xPos: xPos, yPos: yPos};
