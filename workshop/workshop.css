@@ -1,0 +1,30 @@
+/* put your awesome styles here */
+body {
+    font-family: "Verdana";
+    background: url('svg-arrow.png') no-repeat 8px 100px;
+}
+
+svg {
+    border-left: solid #e30066 2px;
+    margin: 1em auto;
+}
+
+code {
+    margin: 1em 2em;
+    display: block;
+}
+
+.snippet {
+    display: inline;
+}
+
+#data-vis {
+    margin: 2em auto;
+    display: block;
+    width: 800px;
+}
+
+#notes {
+    background-color: #f8f8f8;
+    overflow: scroll;
+}

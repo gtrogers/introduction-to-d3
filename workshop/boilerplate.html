@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>d3.js Boiler Plate</title>
+</head>
+<body>
+    <article>
+        <section>
+            <div id="data-vis">
+                <h1>Visualising XKCD</h1>
+                <svg height="600" width="800" viewBox="0 0 800 600">
+                </svg>
+                <div id="notes">
+                    The data is stored as an array in the <pre class="snippet">comics</pre> variable.
+                    Here's an example data point:
+                    <pre><code>
+{
+    alt: "Don't we all.",
+    day: "1",
+    img: "http://imgs.xkcd.com/comics/barrel_cropped_(1).jpg",
+    link: "",
+    month: "1",
+    news: "",
+    num: 1,
+    safe_title: "Barrel - Part 1",
+    title: "Barrel - Part 1",
+    transcript: "[[A boy sits in a barrel which is floating in an ocean.]]Boy: I wonder where I'll float next?[[The barrel drifts into the distance. Nothing else can be seen.]]{{Alt: Don't we all.}}",
+    year: "2006"
+}
+                    </code></pre>
+                    The <pre class="snippet">day</pre>, <pre class="snippet">month</pre> and <pre class="snippet">year</pre>
+                    properties can be used to construct a javascript date object like so:
+                    <pre><code>
+var date = new Date(parseInt(year), parseInt(month), parseInt(day));
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+    </article>
+    <script src="lib/d3.v3.min.js"></script>
+    <script src="data/big_list_of_comics.js"></script>
+    <script src="workshop.js"></script>
+    <link rel="stylesheet" href="workshop.css"></link>
+</body>
+</html>
+
