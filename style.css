@@ -49,6 +49,13 @@ body {
     text-anchor: start;
 }
 
+.jdd-letter {
+    font-family: 'Courier New';
+    font-size: 24;
+    fill: white;
+    stroke: white;
+}
+
 .title {
     font-family: marydale, 'Courier New';
 }

@@ -329,6 +329,38 @@ demo.pathDSL = function () {
             .text(function (d,i) { return pathDescription[i]; });
 };
 
+demo.eventsExample1 = function () {
+    var chart = d3.select('#events-example svg'),
+        data = ['*', 'J', 'D', 'D', '2', '0', '1', '3'],
+        xRow = function (d, i) { return (i%4)*48 + 4; },
+        yRow = function (d, i) { return parseInt(i/4)*24 + 24; };
+
+    chart.selectAll('rect').data(data).enter()
+        .append('rect')
+        .attr('width', 20).attr('height', 20)
+        .attr('x', xRow)
+        .attr('y', function (d,i) { return yRow(d, i) - 18; })
+        .attr('fill', 'red');
+    
+    chart.selectAll('text.jdd-letter').data(data).enter()
+        .append('text')
+        .classed('jdd-letter', true)
+        .attr('x', xRow).attr('y', yRow)
+        .attr('stroke-width', 0)
+        .text(String);
+};
+
+demo.eventsExample2 = function () {
+    var chart = d3.select('#events-example svg');
+
+    chart.selectAll('text.jdd-letter')
+        .on('mouseover', function (d, i) {
+            d3.select(this)
+                .attr('stroke-width', 10)
+                .transition().attr('stroke-width', 0);
+        });
+};
+
 
 demo._init = function () {
     var codeExamples = document.getElementsByTagName('code');

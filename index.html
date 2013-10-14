@@ -11,12 +11,12 @@
                         Welcome to this talk/tutorial/presentation on data visualisation using d3.js.
                         This session will be split into two parts 
                         <ul>
-                            <li>A (quick!) talk introducing some concepts and code examples - download the code and follow along</li>
+                            <li>A talk introducing some concepts and code examples - download the code and follow along</li>
                             <li>Building some visualisations based on what we just learnt</li>
                         </ul>
                         <h3>Steps to get started:</h3>
                         <ul>
-                            <li>Download this - <a href="#">Linky linky...</a></li>
+                            <li>Download this - <a href="http://bit.ly/GNo9Eo">http://bit.ly/GNo9Eo</a></li>
                             <li>Extract it somewhere on your machine</li>
                             <li>Open index.html in Chrome/Chromium/IE9+</li>
                             <li>... do you see this page?</li>
@@ -250,7 +250,17 @@
                 <section>
                     <div class="info-box">
                         <h1>Events</h1>
-                        Words go here...
+                        Events such as <pre class="snippet">mouseover</pre> can be set up in
+                        a similar way to attributes. The <pre class="snippet">.on('eventname', handler)</pre> function
+                        is used to bind an event handler function to an element or selection of elements. The handler
+                        function is passed the data point and it's index in the same way as setting an attribute.
+                        <div class="result sticky" id="events-example">
+                            <svg width="200" height="100" viewBox="0 0 200 100"></svg>
+                        </div>
+                        First we create some elements...
+                        <pre><code data-source="eventsExample1"></code></pre>
+                        And then bind a handler to selection.
+                        <pre><code data-source="eventsExample2"></code></pre>
                     </div>
                 </section>
                 <section>
@@ -279,6 +289,11 @@
                             <li>Give each element it's own appearance</li>
                             <li>Use a scale function to order the elements by publication data</li>
                             <li>Do your own thing!</li>
+                        </ul>
+                        <h3>Hints and tips</h3>
+                        <ul>
+                            <li>Pair with people</li>
+                            <li>Use the web console to inspect the data stored in the <pre class="snippet">comics</pre> variable</li>
                         </ul>
                     </div>
                 </section>
