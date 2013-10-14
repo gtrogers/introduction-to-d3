@@ -140,8 +140,12 @@
                             <svg width="500" height="50"></svg>
                         </div>
                         The SVG format contains many different elements, a full list
-                        can be found here <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element?redirectlocale=en-US&redirectslug=SVG%2FElement">SVG Element Reference</a>. For this tutorial we'll be looking at <pre class="snippet">circle</pre>, <pre class="snippet">rect</pre> and
+                        can be found here <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element?redirectlocale=en-US&redirectslug=SVG%2FElement">SVG Element Reference</a>. For this tutorial we'll be looking at <pre class="snippet">circle</pre>, <pre class="snippet">rect</pre> and
                         <pre class="snippet">path</pre>.
+                        <pre><code data-source="svgBasics"></code></pre>
+                        <div class="result sticky" id="svg-basics">
+                            <svg width="200" height="100" viewBox="0 0 200 100"></svg>
+                        </div>
                     </div>
                 </section>
                 <section>
@@ -255,8 +259,8 @@
                         The DSL is stored in the <pre class="snippet">d</pre> attribute of path elements. We can inspect
                         this attribute with d3.js and use it to label the path above.
                         <pre><code data-source="pathDSL"></code></pre>
-                        With the labels we can see that the start of the line is marked up with <pre class="snippet">M0</pre>
-                        the rest of the points are written <pre class="snippet">[yValue]L[xValue]</pre>. The <pre class="snippet">L</pre>
+                        With the labels we can see that the start of the line is marked up with <pre class="snippet">M0,100</pre>
+                        the rest of the points are written <pre class="snippet">L[xValue],[yValue]</pre>. The <pre class="snippet">L</pre>
                         means line-to.
                     </div>
                 </section>

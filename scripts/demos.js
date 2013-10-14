@@ -97,6 +97,25 @@ demo.svgExample = function () {
         .attr('cx', function (d) { return d*10 + Math.random()*25; })
 };
 
+demo.svgBasics = function () {
+    var svg = d3.select('#svg-basics svg');
+
+    svg.append('rect')
+        .attr('x',10)
+        .attr('y',10)
+        .attr('width', 100)
+        .attr('height', 20);
+
+    svg.append('circle')
+        .attr('cx', 30)
+        .attr('cy', 60)
+        .attr('r', 20);
+
+    svg.append('path')
+        .attr('d', 'M60,60 L80,70 L100,60 Z')
+        .attr('stroke', 'black');
+};
+
 demo.barChartData = function () {
     // demo.barCharData()
     return [
@@ -316,7 +335,8 @@ demo.pathsExample2 = function () {
 
 demo.pathDSL = function () {
     var chart = d3.select('#paths-example svg'),
-        pathDescription = chart.select('path').attr('d').split(','),
+        pathRegex = /(\D\d+,\d+)/g,
+        pathDescription = chart.select('path').attr('d').match(pathRegex),
         data = chart.select('g.graph-line').data()[0];
         
         chart.selectAll('text').data(data)
