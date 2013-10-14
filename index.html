@@ -78,11 +78,24 @@
                         or functions. When you use functions each element knows
                         which piece of data it is joined to.
                     </div>
+                    <div class="info-box">
+                        <h3>Writing d3.js</h3>
+                        A first glance d3.js looks very similar to jQuery, sizzle or other javascript
+                        libraries that work by following selectors with chained methods. In general a method
+                        call with one argument will get a property. <pre class="snippet">d3.select('div').style('background-color')</pre>
+                        returns the background colour of the selected div. A method call with two arguments  will set the
+                        value of the referenced property. <pre class="snippet">d3.select('div').style('background-color','red')</pre>
+                        will set the background colour of the div to red.</br></br>
+                        d3.js is different from jQuery in that for most attributes you can use functions as well
+                        as values. The result of the function will be automatically calculated for the data bound to the element.
+                        When you write d3.js you are using functions to describe how you want an element to
+                        appear based on it's data values. This means that all elements must have data values...
+                    </div>
                 </section>
                 <section>
                     <div class="info-box">
                         <h1>Joins</h1>
-                        Data is bound by joining it to a selection created using <pre class="snippet">.selectAll()</pre>.
+                        Data is bound to elements by joining it to a selection created using <pre class="snippet">.selectAll()</pre>.
                         If the elements already exist then data is bound to them (by default d3.js uses the order to decide
                         which piece of data gets bound to which element).
                         <pre><code data-source="joinsExample"></code></pre>
