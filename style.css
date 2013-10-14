@@ -17,6 +17,10 @@ body {
     opacity: 1;
 }
 
+.info-box:active {
+    opacity: 1;
+}
+
 .result {
     background-color: #F0F0F0;
     min-width: 600px;
